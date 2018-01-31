@@ -6,13 +6,13 @@ var VideoPlayerView = Backbone.View.extend({
   },
 
   render: function() {
-    // debugger;
-    console.log(this);
+    // this render sets the initial render and is given the first model instance in the collection
     this.$el.html(this.template(this.collection.models[0].attributes));
     return this;
   },
 
   renderSelected: function(video) {
+    // this re-renders the player when a 'select' event is found
     this.$el.html(this.template(video.attributes));
     return this;
     console.log(video.attributes);
