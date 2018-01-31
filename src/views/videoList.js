@@ -11,7 +11,7 @@ var VideoListView = Backbone.View.extend({
     // render videoList before rendering each videoListEntry
     this.collection.forEach(this.renderVideo, this);
     
-    console.log(this.collection);
+    // console.log(this.collection);
     return this;
   },
 

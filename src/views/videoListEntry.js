@@ -3,7 +3,7 @@ var VideoListEntryView = Backbone.View.extend({
   // adding initialize function to listen for new video
   // the event it listens for is setting of ID
   initialize: function() {
-    this.model.on('click', this.render, this);
+    this.model.on('change:selected', this.render, this);
     
     // console.log(this.model);
   },
@@ -12,7 +12,7 @@ var VideoListEntryView = Backbone.View.extend({
   // clickhandler will call .select() method of that video
 
   events: {
-    'click': 'handleClick'
+    'click .video-list-entry-title': 'handleClick'
   },
 
   handleClick: function() {
@@ -21,9 +21,6 @@ var VideoListEntryView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.model.attributes));
-    this.$el.find('.video-list-entry-title').html(this.model.attributes.snippet.title);
-    this.$el.find('.video-list-entry-detail').html(this.model.attributes.snippet.description);
-    this.$el.find('.media-object').attr('src', this.model.attributes.snippet.thumbnails.default.url);
     return this.$el;
   },
 
